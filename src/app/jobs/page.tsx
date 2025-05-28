@@ -115,12 +115,16 @@ function RecommendedResults({ isLoading, error, jobs }: ResultsProps) {
 
   return (
     <>
-      <h2 className="text-lg font-semibold mb-2">Recommended Jobs</h2>
-      <List columns={2}>
-        {jobs.map((job: any) => (
-          <JobCard key={job.job_id} job={job} />
-        ))}
-      </List>
+      {jobs.length > 0 && (
+        <>
+          <h2 className="text-lg font-semibold mb-2">Recommended Jobs</h2>
+          <List columns={2}>
+            {jobs.map((job: any) => (
+              <JobCard key={job.job_id} job={job} />
+            ))}
+          </List>
+        </>
+      )}
     </>
   );
 }
